@@ -9,15 +9,9 @@ export default {
 
   mounted() {
     // Get values from URL query parameters
-    const clientCode = this.$route.query.clientcode
-      ? this.$route.query.clientcode 
-      : "";
-    const clientName = this.$route.query.clientname
-  ? decodeURIComponent(this.$route.query.clientname)
-  : "";
-    const clientemail = this.$route.query.clientemail
-      ? this.$route.query.clientemail
-      : "";
+const clientCode = this.$route.query.clientcode ? this.$route.query.clientcode : "";
+const clientName = this.$route.query.clientname ? this.$route.query.clientname.replace(/\s+/g, '') : ""; // Remove all spaces
+const clientemail = this.$route.query.clientemail ? this.$route.query.clientemail : "";
     // Do something with clientCode and clientName
     // this.clientCode = "GZ10219";
     // this.clientName = "RAJA ESWARAN";
