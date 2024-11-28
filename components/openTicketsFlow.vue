@@ -169,7 +169,7 @@
     </div>
 
     <!-- emty page -->
-    <div v-if="tickets.length == 0 && loading == false">
+    <div v-if="ticketData.length == 0 && loading == false">
       <div class="flex justify-center items-center">
         <img
           src="/static/no-data-found.jpeg"

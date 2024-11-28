@@ -167,7 +167,7 @@
     </div>
     <!-- mty -->
     <div
-      v-if="resolvedTickets.length == 0 && loading == false"
+      v-if="resolvedTickets.length < 0 && loading == false"
       class="flex justify-center items-center"
     >
       <div>

@@ -13,8 +13,8 @@ export default {
       ? this.$route.query.clientcode 
       : "";
     const clientName = this.$route.query.clientname
-      ? this.$route.query.clientname 
-      : "";
+  ? decodeURIComponent(this.$route.query.clientname)
+  : "";
     const clientemail = this.$route.query.clientemail
       ? this.$route.query.clientemail
       : "";
