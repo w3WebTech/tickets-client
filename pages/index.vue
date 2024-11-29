@@ -1,29 +1,35 @@
 <template>
-  <div class="bg-[#eeeff4] md:bg-white min-h-screen ">
-    <home/>
+  <div class="bg-[#eeeff4] md:bg-white min-h-screen">
+    <home />
   </div>
 </template>
 <script lang="ts">
 export default {
- 
-
   mounted() {
     // Get values from URL query parameters
-const clientCode = this.$route.query.clientcode ? this.$route.query.clientcode : "";
-const clientName = this.$route.query.clientname ? this.$route.query.clientname : ""; // Remove all spaces
-const clientemail = this.$route.query.clientemail ? this.$route.query.clientemail : "";
+    const clientCode = this.$route.query.clientcode
+      ? this.$route.query.clientcode
+      : "";
+    //const clientName = this.$route.query.clientname ? this.$route.query.clientname : "";
+
+  const clientName = this.$route.query.clientname 
+    ? atob(this.$route.query.clientname) // Decode Base64
+    : "";
+    const clientemail = this.$route.query.clientemail
+      ? this.$route.query.clientemail
+      : "";
     // Do something with clientCode and clientName
     // this.clientCode = "GZ10219";
     // this.clientName = "RAJA ESWARAN";
     // this.clientemail=   "eswaran@gwcindia.in";
-    localStorage.setItem("clientemail",clientemail);
+    localStorage.setItem("clientemail", clientemail);
     localStorage.setItem("clientname", clientName);
-    localStorage.setItem("clientcode",clientCode);
+    localStorage.setItem("clientcode", clientCode);
 
     this.$router.push("/home");
 
     console.log("Client Code:", clientCode);
-    console.log("Client Name:",     localStorage.getItem("clientname"));
+    console.log("Client Name:", localStorage.getItem("clientname"));
 
     console.log("Client Name:", clientemail);
   },
@@ -32,18 +38,15 @@ const clientemail = this.$route.query.clientemail ? this.$route.query.clientemai
       allDepartMentData: null,
       getDepartment: null,
       tickets: [],
-  
+
       error: null,
       emailId: "",
       resolvedTicketsData: [],
       openTicketsData: [],
-      
     };
   },
 
-  methods: {
-   
-  },
+  methods: {},
 };
 </script>
 <style scoped>
